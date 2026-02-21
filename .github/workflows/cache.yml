@@ -11,6 +11,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Create cache folder
+        run: mkdir -p cache-folder
+
       - name: Restore cache
         id: cache-step
         uses: actions/cache@v4
