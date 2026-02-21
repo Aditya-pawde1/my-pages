@@ -4,22 +4,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  cache-job:
+  test-cache:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Create cache folder
-        run: mkdir -p cache-folder
+      - run: echo "hello" > test.txt
 
-      - name: Restore cache
-        id: cache-step
+      - id: cache
         uses: actions/cache@v4
         with:
-          path: cache-folder
+          path: test.txt
           key: cache-98f36df
 
       - name: prime-cache-98f36df
-        run: echo "Cache hit: ${{ steps.cache-step.outputs.cache-hit }}"
+        run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
