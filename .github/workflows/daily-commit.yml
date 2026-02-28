@@ -1,4 +1,4 @@
-name: 23f2005561@ds.study.iitm.ac.in - Daily Auto Commit
+name: Daily Auto Commit
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  auto-commit:
+  23f2005561@ds.study.iitm.ac.in:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "23f2005561@ds.study.iitm.ac.in"
 
-      - name: Create commit
+      - name: Create daily commit
         run: |
           echo "Update run at $(date +%s)" >> daily-log.txt
           git add daily-log.txt
