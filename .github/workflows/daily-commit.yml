@@ -2,7 +2,7 @@ name: Daily Auto Commit
 
 on:
   schedule:
-    - cron: '17 4 * * *'   # Runs daily at 04:17 UTC (specific time, no wildcards)
+    - cron: '17 4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
 
       - name: 23f2005561@ds.study.iitm.ac.in - Create Daily Commit
         run: |
-          echo "Last updated: $(date)" >> daily-log.txt
+          echo "Update run at $(date +%s)" >> daily-log.txt
           git add daily-log.txt
-          git commit -m "Daily automated commit"
+          git commit -m "Daily automated commit $(date +%s)" || echo "No changes"
           git push
